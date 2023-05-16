@@ -1,0 +1,21 @@
+{
+  "name": "ingdiba-document-downloader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node build/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "puppeteer": "^20.2.0",
+    "sanitize-filename": "^1.6.3",
+    "utimes": "^5.1.1"
+  }
+}
