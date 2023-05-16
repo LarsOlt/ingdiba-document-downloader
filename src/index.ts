@@ -18,7 +18,7 @@ async function start() {
   const page = await browser.newPage();
   await page.goto("https://banking.ing.de/app/postbox/postbox");
 
-  await waitForConsoleInput("Hit enter when logged in");
+  await waitForConsoleInput("Hit enter when logged in and the overview is loaded");
 
   const documentRows = await page.$$(".ibbr-table-body--bordered");
 
@@ -67,7 +67,9 @@ async function start() {
     });
   }
 
-  async function handleDocuments() {
+  async function downloadDocuments() {
+    console.log("Starting downloading documents, this will take a while...");
+
     for (const row of documentRows) {
       waitFor(100);
 
@@ -98,9 +100,11 @@ async function start() {
     }
   }
 
-  await handleDocuments();
+  await downloadDocuments();
 
-  console.log("done");
+  console.log(`Done, All documents downloaded to ${downloadFolder}`);
+
+  await browser.close();
 }
 
 start();
